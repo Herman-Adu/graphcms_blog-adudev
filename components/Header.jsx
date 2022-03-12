@@ -1,16 +1,23 @@
 /* eslint-disable no-console */
 /* eslint-disable quotes */
-import React from "react";
+import React, { useState, useEffect } from "react";
 
 import Link from "next/link";
+import { getCategories } from "../services";
 
-const categories = [
+/* const categories = [
   { name: "React", slug: "react" },
   { name: "Web Development", slug: "web-dev" },
-];
+]; */
 
 const Header = () => {
-  console.log(categories);
+  const [categories, setCategories] = useState([]);
+
+  useEffect(() => {
+    getCategories().then((newCategories) => {
+      setCategories(newCategories);
+    });
+  }, []);
 
   return (
     <div className="container mx-auto mb-8 px-10">

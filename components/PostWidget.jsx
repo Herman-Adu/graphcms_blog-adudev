@@ -22,7 +22,7 @@ const PostWidget = ({ categories, slug }) => {
     }
   }, [slug]);
 
-  console.log("Related Post:", relatedPosts);
+  // console.log("Related Post:", relatedPosts);
 
   return (
     <div className="bg-white shadow-lg rounded-lg p-8 pb-12 mb-8">
