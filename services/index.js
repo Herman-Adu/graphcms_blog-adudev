@@ -1,3 +1,4 @@
+/* eslint-disable quotes */
 // eslint-disable-next-line quotes
 import { request, gql } from "graphql-request";
 
@@ -131,4 +132,17 @@ export const getCategories = async () => {
   const result = await request(graphqlAPI, query);
 
   return result.categories;
+};
+
+// http request to our own next js backend api
+export const submitComment = async (obj) => {
+  const result = await fetch("/api/comments", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(obj),
+  });
+
+  return result.json();
 };
