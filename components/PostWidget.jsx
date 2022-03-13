@@ -1,7 +1,6 @@
 /* eslint-disable no-console */
 /* eslint-disable quotes */
 import React, { useState, useEffect } from "react";
-import Image from "next/image";
 import moment from "moment";
 import Link from "next/link";
 
