@@ -1,9 +1,11 @@
+/* eslint-disable arrow-body-style */
 /* eslint-disable semi */
 /* eslint-disable no-unused-vars */
 /* eslint-disable no-console */
 /* eslint-disable react/jsx-no-undef */
 /* eslint-disable quotes */
 import React from "react";
+import { useRouter } from "next/router";
 
 import {
   PostDetail,
@@ -12,12 +14,19 @@ import {
   Author,
   Comments,
   CommentsForm,
+  Loader,
 } from "../../components";
 import { getPosts, getPostDetails } from "../../services";
 import { AdjacentPosts } from "../../sections";
 
 const PostDetails = ({ post }) => {
-  console.log({ getPostDetails });
+  // console.log({ getPostDetails });
+  const router = useRouter();
+
+  if (router.isFallback) {
+    return <Loader />;
+  }
+
   return (
     <div className="container mx-auto px-10 mb-8">
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
